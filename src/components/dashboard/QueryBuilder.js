@@ -88,10 +88,7 @@ export default function QueryBuilder({ available = [], selected = [], activeFilt
   };
 
   return (
-    // 1. RESPONSIVE CONTAINER: Menos padding en móvil (p-4), más en desktop (md:p-6)
     <div className="bg-white p-4 md:p-6 rounded-xl shadow-sm border border-gray-200 space-y-4">
-      
-      {/* 2. RESPONSIVE HEADER: Stack vertical en móvil, fila en desktop */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-0">
         <h2 className="text-base md:text-lg font-semibold text-gray-800 flex items-center gap-2">
           <span className="flex items-center justify-center w-6 h-6 rounded-full bg-blue-100 text-blue-600 text-xs font-bold shrink-0">1</span>
@@ -111,7 +108,6 @@ export default function QueryBuilder({ available = [], selected = [], activeFilt
           const locked = isColumnLocked(colId);
 
           return (
-            // Flex grow en móvil para que los botones llenen el ancho disponible
             <div key={colId} className="relative group flex-grow sm:flex-grow-0">
               
               <button
@@ -129,7 +125,7 @@ export default function QueryBuilder({ available = [], selected = [], activeFilt
                   }
                 `}
               >
-                {/* Checkbox Visual */}
+            
                 <div className={`w-4 h-4 rounded border flex items-center justify-center transition-colors shrink-0
                   ${locked ? 'border-gray-300 bg-gray-200' : isSelected ? 'bg-blue-600 border-blue-600' : 'border-gray-300 bg-white group-hover:border-blue-400'}
                 `}>
@@ -138,14 +134,13 @@ export default function QueryBuilder({ available = [], selected = [], activeFilt
 
                 <span className="truncate">{label}</span>
 
-                {/* Icono de Candado o Filtro */}
+            
                 {locked ? (
                   <Lock size={14} className="ml-1 text-gray-400 shrink-0" />
                 ) : (
                   (hasActiveFilter || isSelected) && (
                     <div 
                       onClick={(e) => handleFilterIconClick(e, colId)}
-                      // Área de toque aumentada para el icono de filtro en móvil
                       className={`ml-1 p-1 md:p-0.5 rounded-full hover:bg-blue-200 transition-colors cursor-pointer shrink-0 ${hasActiveFilter ? 'bg-blue-100' : ''}`}
                     >
                           <Filter 

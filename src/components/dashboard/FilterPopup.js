@@ -162,9 +162,9 @@ export default function FilterPopup({ column, type, data, currentFilter, onSave,
                 onChange={(e) => setLocalFilter({...localFilter, operator: e.target.value})}
                 className="w-24 p-2.5 bg-gray-50 border border-gray-300 rounded-lg text-sm font-bold text-center focus:ring-2 focus:ring-blue-500 outline-none"
               >
-                <option value=">">Mayor {'>'}</option>
-                <option value="<">Menor {'<'}</option>
-                <option value="=">Igual =</option>
+                <option value=">">{'>'}</option>
+                <option value="<">{'<'}</option>
+                <option value="=">{'='}</option>
               </select>
               <input 
                 type="number" 
