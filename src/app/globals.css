@@ -26,14 +26,6 @@
 
 
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-/* Aplica las variables globales al body para el tema claro y oscuro */
-
 body {
   background: var(--background);
   color: var(--foreground);
