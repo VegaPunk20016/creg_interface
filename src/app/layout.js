@@ -1,6 +1,6 @@
-import { Inter, Inter_Tight } from "next/font/google";
+import { Inter, Inter_Tight, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
-import Sidebar from "@/components/dashboard/Sidebar";
+import Sidebar from "@/components/ui/Sidebar";
 
 const geistSans = Inter({
   variable: "--font-inter",
@@ -11,6 +11,12 @@ const geistMono = Inter_Tight({
   variable: "--font-inter-tight",
   subsets: ["latin"],
 });
+
+const jakarta = Plus_Jakarta_Sans({
+  variable: "--font-jakarta",
+  subsets: ["latin"],
+  display: "swap",
+})
 
 export const metadata = {
   title: "CREG Data",
@@ -24,9 +30,9 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-100 text-slate-600`}
       >
         <Sidebar />
-        <main className="relative h-full min-h-screen transition-all duration-200 ease-in-out xl:ml-72 p-6">
+
           {children}
-        </main>
+      
         
       </body>
     </html>

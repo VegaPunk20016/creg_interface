@@ -1,5 +1,4 @@
 'use client';
-
 import { useState, useMemo } from 'react'; 
 import QueryBuilder from '@/components/dashboard/QueryBuilder';
 import Visualization from '@/components/dashboard/Visualization';
@@ -47,7 +46,7 @@ export default function DashboardPage() {
 
       data.forEach(row => {
         const groupKey = selectedColumns
-          .filter(col => typeof row[col] !== 'number' && col !== 'id') // Ignoramos ID original y números
+          .filter(col => typeof row[col] !== 'number' && col !== 'id') 
           .map(col => row[col])
           .join('|');
 

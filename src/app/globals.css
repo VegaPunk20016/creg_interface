@@ -1,35 +1,82 @@
-/* Aqui se importa Tailwind CSS, ya no se usa el archivo tailwind.config.js
-*/
-
 @import "tailwindcss";
 
-
-/* root es el selector global que define las variables personalizadas
-   para el tema claro (light mode)
-*/
+/* 1. DEFINICIÓN DE VARIABLES CSS (TOKENS) */
 :root {
+  /* Tus variables originales */
   --background: #ffffff;
   --foreground: #171717;
+
+  /* Nuevos colores para la Landing Page (CREG) */
+  --primary: #187adc;
+  --primary-dark: #125aab;
+  --accent: #FFD700;       /* Gold */
+  --bg-dark: #051733;      /* Azul oscuro profundo */
+  --bg-soft: #f0f8ff;
 }
 
-/*
-  Aqui se definen las variables de tema para el modo inline,
-  asignando los valores de las variables personalizadas, conecta 
-  tailwind a css
-*/
-@theme inline {
+/* 2. CONFIGURACIÓN DEL TEMA TAILWIND v4 */
+@theme {
+  /* Mapeo de variables base */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-inter);
   --font-mono: var(--font-inter-tight);
+
+  /* Mapeo de variables CREG Landing */
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-accent: var(--accent);
+  --color-background-dark: var(--bg-dark);
+  --color-background-soft: var(--bg-soft);
+
+  /* Fuente específica para títulos (Jakarta) */
+  --font-display: var(--font-jakarta);
+
+  /* Animaciones Personalizadas */
+  --animate-float: float 6s ease-in-out infinite;
+
+  /* Imagen de fondo personalizada (Glow) */
+  --background-image-hero-glow: radial-gradient(circle at 50% 50%, rgba(24, 122, 220, 0.15) 0%, rgba(5, 23, 51, 0) 70%);
 }
 
+/* 3. KEYFRAMES PARA ANIMACIONES */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+}
 
-
+/* 4. ESTILOS BASE */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-inter)
+  font-family: var(--font-inter);
 }
 
-/* Aplica las variables globales al body para el tema inline */
+/* 5. CLASES DE UTILIDAD PERSONALIZADAS (COMPONENTES) */
+
+/* Tarjeta de cristal (Glassmorphism) */
+.glass-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+}
+
+/* Botón estilo "Pixar" 3D */
+.hero-btn {
+  box-shadow: 0 4px 0px 0px #F59E0B; /* Sombra sólida */
+  transition: all 0.2s ease;
+}
+
+.hero-btn:active {
+  transform: translateY(4px);
+  box-shadow: 0 0px 0px 0px #F59E0B;
+}
+
+/* Partículas de fondo */
+.particle {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  pointer-events: none;
+}
