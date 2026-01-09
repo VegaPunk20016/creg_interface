@@ -4,6 +4,10 @@ import Badge from '../components/ui/Badge';
 import Container from '../components/ui/Container';
 import FeatureCard from '../components/ui/FeatureCard';
 import Link from 'next/link';
+import ilustracionImg from '../../public/ilustracion_1.png'; 
+import Image from 'next/image';
+
+
 
 const sources = [
   { name: 'INEGI', verified: true, url: 'https://www.inegi.org.mx/' },
@@ -33,9 +37,7 @@ export default function LandingPage() {
                     </div>
                     <h2 className="text-white text-xl font-extrabold tracking-tight">CREG DATA</h2>
                 </div>
-                <button className="md:hidden text-white/80 hover:text-white">
-                    <Menu className="size-8" />
-                </button>
+            
             </Container>
         </div>
         <Container className="relative z-10 w-full py-12 lg:py-20">
@@ -60,7 +62,12 @@ export default function LandingPage() {
               overflow-hidden shadow-2xl border-4 border-white/5 bg-linear-to-b
                 from-blue-900/50 to-transparent backdrop-blur-sm group cursor-pointer">
                 <div className="absolute inset-0 flex flex-col items-center justify-center bg-blue-950/40 p-10 text-center">
-                    <Bot className="size-24 text-blue-400/50 mb-4 group-hover:text-primary transition-colors duration-500" />
+                  <Image
+                    src={ilustracionImg}
+                    alt="Ilustración de datos abiertos"
+                    className="mb-4 object-contain transition-transform duration-500 group-hover:scale-110"
+                    priority 
+                    />
                 </div>
                 <div className="absolute inset-0 bg-linear-to-t from-background-dark via-transparent to-transparent opacity-60"></div>
               </div>
